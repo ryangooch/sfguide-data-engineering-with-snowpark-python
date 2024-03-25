@@ -62,7 +62,8 @@ def get_data():
     session=snowpark_utils.get_snowpark_session()
 
     # Execute the query and load the results into a DataFrame
-    df = session.sql(query).to_pandas()
+    # df = session.sql(query).to_pandas()
+    df = pd.DataFrame(session.sql(query).collect())
 
     # Return the DataFrame
     return df
